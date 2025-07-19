@@ -55,11 +55,28 @@ Nolang and his contributors did an awesome job of compiling this information and
   	 	- May be known as Layer 7 firewalls.
   	- **Next-generation firewalls (NGFW)** provide advanced capabilities over a traditional firewall by offering application awareness/control, IPS functions, URL filtering, and threat intelligence integrations.
   	- **Cloud-native firewalls** operate in the cloud and support elastic security workflows, multi-tenancy, and smart load balancing.
-- NAT 
-	- Useful to understand IPv4 vs IPv6.
+- NAT [3](https://www.cisco.com/site/us/en/learn/topics/networking/what-is-network-address-translation-nat.html)
+	- Translates a single public IP to multiple internal IP addresses (i.e. 8.8.8.8 --> 192.168.0.0/16).
+ 	- Introduced to address IPv4 exhaustion.
+ 	- Usually implemented on WAN edge routers to connect private networks to public networks like the Internet.
+  	- NAT64 allows IPv4-only devices and IPv6-only devices to communicate.
 - DNS
-	- (53)
-	- Requests to DNS are usually UDP, unless the server gives a redirect notice asking for a TCP connection. Look up in cache happens first. DNS exfiltration. Using raw IP addresses means no DNS logs, but there are HTTP logs. DNS sinkholes.
+	- Port 53
+	- DNS is the "phonebook" of the Internet -- resolving domain names to IP addresses and vice-versa.
+ 	- How does it work? / "What happens when you type *insert website* into the address bar?
+  		1.  A user types ‘example.com’ into a web browser and the query travels into the Internet and is received by a DNS recursive resolver.
+    		2.  The resolver then queries a DNS root nameserver (.).
+      		3.  The root server then responds to the resolver with the address of a Top Level Domain (TLD) DNS server (such as .com or .net), which stores the information for its domains. When searching for example.com, our request is pointed toward the .com TLD.
+        	4.  The resolver then makes a request to the .com TLD.
+		5.  The TLD server then responds with the IP address of the domain’s nameserver, example.com.
+  		6.  Lastly, the recursive resolver sends a query to the domain’s nameserver.
+    		7.  The IP address for example.com is then returned to the resolver from the nameserver.
+      		8.  The DNS resolver then responds to the web browser with the IP address of the domain requested initially.
+        	9.  The browser makes a HTTP request to the IP address.
+         	10. The server at that IP returns the webpage to be rendered in the browser
+      
+  		![Alt text](https://github.com/glass-scarab/engineer-study-guide/blob/main/Images/dns-lookup.png "Complete DNS Lookup and Webpage Query")
+     
 	- In a reverse DNS lookup, PTR might contain- 2.152.80.208.in-addr.arpa, which will map to  208.80.152.2. DNS lookups start at the end of the string and work backwards, which is why the IP address is backwards in PTR.
 - DNS exfiltration 
 	- Sending data as subdomains. 
@@ -760,5 +777,6 @@ These security engineering challenges focus on text parsing and manipulation, ba
 
  ## Sources
 1. Cloudflare (2025). "*What is the OSI Model?*". https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
-2. Cisco (2025). "*What is a Firewall*". https://www.cisco.com/site/us/en/learn/topics/security/what-is-a-firewall.html
+2. Cisco (2025). "*What is a Firewall?*". https://www.cisco.com/site/us/en/learn/topics/security/what-is-a-firewall.html
+3. Cisco (2025). "*What is Network Address Translation (NAT)?*". https://www.cisco.com/site/us/en/learn/topics/networking/what-is-network-address-translation-nat.html
  
