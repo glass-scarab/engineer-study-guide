@@ -25,7 +25,7 @@ Nolang and his contributors did an awesome job of compiling this information and
 
 # Networking 
 
-- OSI Model [1](####1)
+- OSI Model [1](#1)
 	- Application; layer 7
  		- Human - Computer interaction layer
    		- Software applications rely on the application layer to communications.
