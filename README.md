@@ -6,10 +6,41 @@
 ### Foreword
 Nolang and his contributors did an awesome job of compiling this information and adding relevant interviewing tips for prospective security engineers. If you want to see those tips, please check out Nolang's original [guide](https://github.com/gracenolan/Notes/blob/master/interview-study-notes-for-security-engineering.md). I'm going to be jumping straight to content in this guide. This revision will also be adding detailed explanations and examples of code relevant to the original and new topics. If you don't think I did something right, cool just let me know and I'll fix it. If there's something you want to add, cool let me know and we'll add it. I'll try to make this as much of a living document as possible. Just remember to credit anyone that you borrow from. It's not a graduate thesis, but it is the nice thing to do when people work so hard to supply knowledge. Anyway, hope this helps you land a job somewhere. If it does, tweet me because I love hearing that shit! [@glass-scarab](https://x.com/GlassScara89125)
 
+### Contents
+- [README](README.md)
+- [Learning Tips](#learning-tips)
+- [Interviewing Tips](#interviewing-tips)
+- [Networking](#networking)
+- [Web Application](#web-application)
+- [Infrastructure (Prod / Cloud) Virtualisation](#infrastructure-prod--cloud-virtualisation)
+- [OS Implementation and Systems](#os-implementation-and-systems)
+- [Mitigations](#mitigations)
+- [Cryptography, Authentication, Identity](#cryptography-authentication-identity)
+- [Malware & Reversing](#malware--reversing)
+- [Exploits](#exploits)
+- [Attack Structure](#attack-structure)
+- [Threat Modeling](#threat-modeling)
+- [Detection](#detection)
+- [Digital Forensics](#digital-forensics)
+- [Incident Management](#incident-management)
+- [Coding & Algorithms](#coding--algorithms)
+- [Security Themed Coding Challenges](#security-themed-coding-challenges)
+
 # Networking 
 
 - OSI Model
-	- Application; layer 7 (and basically layers 5 & 6) (includes API, HTTP, etc).
+	- Application; layer 7
+ 		- Human - Computer interaction layer
+   		- Software applications rely on the application layer to communications.
+     		- Software apps are not IN layer 7, but rely on its protocols.
+       		- Protocols: HTTP, SMTP
+ 	- Presentation; layer 6
+  		- Responsible for preparing data to be used by the application layer
+    		- Includes encryption, translation, and compression.
+  	- Session; layer 5
+  		- Responsible for opening and closing communications between two systems.
+  	 	- Also manages checkpointing and recovery of session.
+  	  	- Includes RPC and establishment calls for NetBIOS and SQL.
 	- Transport; layer 4 (TCP/UDP).
 	- Network; layer 3 (Routing).
 	- Datalink; layer 2 (Error checking and frame synchronisation).
@@ -718,3 +749,6 @@ These security engineering challenges focus on text parsing and manipulation, ba
 - Malware signatures
 	- A program that looks for malware signatures in binaries and code samples.
 	- Look at Yara rules for examples
+
+ ## Sources
+ [1] - https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
