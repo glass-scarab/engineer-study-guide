@@ -4,7 +4,9 @@
 
 
 ### Foreword
-Nolang and his contributors did an awesome job of compiling this information and adding relevant interviewing tips for prospective security engineers. If you want to see those tips, please check out Nolang's original [guide](https://github.com/gracenolan/Notes/blob/master/interview-study-notes-for-security-engineering.md). I'm going to be jumping straight to content in this guide. This revision will also be adding detailed explanations and examples of code relevant to the original and new topics. If you don't think I did something right, cool just let me know and I'll fix it. If there's something you want to add, cool let me know and we'll add it. I'll try to make this as much of a living document as possible. Just remember to credit anyone that you borrow from. It's not a graduate thesis, but it is the nice thing to do when people work so hard to supply knowledge. Anyway, hope this helps you land a job somewhere. If it does, tweet me because I love hearing that shit! [@glass-scarab](https://x.com/GlassScara89125)
+Nolang and his contributors did an awesome job of compiling this information and adding relevant interviewing tips for prospective security engineers. If you want to see those tips, please check out Nolang's original [guide](https://github.com/gracenolan/Notes/blob/master/interview-study-notes-for-security-engineering.md). I'm going to be jumping straight to content in this guide. This revision will also be adding detailed explanations and examples of code relevant to the original topics and new topics. If you don't think I did something right, cool just let me know and I'll fix it. If there's something you want to add, cool let me know and I'll add it. I'll try to make this as much of a living document as possible. Just remember to credit anyone that you borrow from. It's not a graduate thesis, but it is the nice thing to do when people work so hard to supply knowledge. Anyway, hope this helps you land a job somewhere. If it does, tweet me because I love hearing that shit! [@glass-scarab](https://x.com/GlassScara89125)
+
+![Alt text](https://github.com/glass-scarab/engineer-study-guide/blob/main/Images/bing_chilling_kitty.png "a title")
 
 ### Contents
 - [Networking](#networking)
@@ -42,8 +44,17 @@ Nolang and his contributors did an awesome job of compiling this information and
 	- Network; layer 3 (Routing).
 	- Datalink; layer 2 (Error checking and frame synchronisation).
 	- Physical; layer 1 (Bits over fibre).	
-- Firewalls
-	- Rules to prevent incoming and outgoing connections.	
+- Firewalls [2](https://www.cisco.com/site/us/en/learn/topics/security/what-is-a-firewall.html)
+	- A firewall is a network security device that separates a trusted internal network from an untrusted, external network.
+	- Will contain rules blocking or allowing based on filtering and traffic type.
+ 	- **Packet filtering** firewalls search each packet and filter based on IP, port, and protocol types; however, they do not inspect packet contents.
+  	- **Proxy firewalls** serves as a gateway from one network to another for a specific application.
+  		- Can also provide conent caching an additional security, by preventing direct connections from external users/systems.
+  	- **Web application firewalls (WAF)** act as a middleman for communication requests between an internal and external network.
+  		- Robust security through content inspection.
+  	 	- May be known as Layer 7 firewalls.
+  	- **Next-generation firewalls (NGFW)** provide advanced capabilities over a traditional firewall by offering application awareness/control, IPS functions, URL filtering, and threat intelligence integrations.
+  	- **Cloud-native firewalls** operate in the cloud and support elastic security workflows, multi-tenancy, and smart load balancing.
 - NAT 
 	- Useful to understand IPv4 vs IPv6.
 - DNS
@@ -748,6 +759,6 @@ These security engineering challenges focus on text parsing and manipulation, ba
 	- Look at Yara rules for examples
 
  ## Sources
- # 1.
- 	Cloudflare(2025)."*What is the OSI Model?*". https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
+1. Cloudflare (2025). "*What is the OSI Model?*". https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
+2. Cisco (2025). "*What is a Firewall*". https://www.cisco.com/site/us/en/learn/topics/security/what-is-a-firewall.html
  
