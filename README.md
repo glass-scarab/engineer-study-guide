@@ -7,9 +7,6 @@
 Nolang and his contributors did an awesome job of compiling this information and adding relevant interviewing tips for prospective security engineers. If you want to see those tips, please check out Nolang's original [guide](https://github.com/gracenolan/Notes/blob/master/interview-study-notes-for-security-engineering.md). I'm going to be jumping straight to content in this guide. This revision will also be adding detailed explanations and examples of code relevant to the original and new topics. If you don't think I did something right, cool just let me know and I'll fix it. If there's something you want to add, cool let me know and we'll add it. I'll try to make this as much of a living document as possible. Just remember to credit anyone that you borrow from. It's not a graduate thesis, but it is the nice thing to do when people work so hard to supply knowledge. Anyway, hope this helps you land a job somewhere. If it does, tweet me because I love hearing that shit! [@glass-scarab](https://x.com/GlassScara89125)
 
 ### Contents
-- [README](README.md)
-- [Learning Tips](#learning-tips)
-- [Interviewing Tips](#interviewing-tips)
 - [Networking](#networking)
 - [Web Application](#web-application)
 - [Infrastructure (Prod / Cloud) Virtualisation](#infrastructure-prod--cloud-virtualisation)
@@ -28,7 +25,7 @@ Nolang and his contributors did an awesome job of compiling this information and
 
 # Networking 
 
-- OSI Model
+- OSI Model [1]([1])
 	- Application; layer 7
  		- Human - Computer interaction layer
    		- Software applications rely on the application layer to communications.
@@ -751,4 +748,5 @@ These security engineering challenges focus on text parsing and manipulation, ba
 	- Look at Yara rules for examples
 
  ## Sources
- [1] - https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
+ [1] - Cloudflare. (2025). "*What is the OSI Model?*". https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
+ 
