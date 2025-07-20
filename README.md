@@ -110,7 +110,7 @@ Nolang and his contributors did an awesome job of compiling this information and
 	- Pointers for reverse DNS lookups (PTR). [11](https://www.cloudflare.com/learning/dns/dns-records/dns-ptr-record/)
  		- Stands for **pointer** and correlates domain names with IP addresses
    		- **Opposite of A/AAAA records** which corelate **IPs -> Domains** (i.e. What IP is associated with this domain I have?).
-     			- A/AAAA records are used in web browsing and other forward lookups.
+     		- A/AAAA records are used in web browsing and other forward lookups.
    		- PTR == Domains -> IPs** (i.e. What domain is associated with this IP I have?).
      		- PTR records are used in reverse DNS lookup
 	- Domain name aliases (CNAME).
