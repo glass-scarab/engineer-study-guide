@@ -80,7 +80,7 @@ Nolang and his contributors did an awesome job of compiling this information and
             9. The browser makes a HTTP request to the IP address.
             10. The server at that IP returns the webpage to be rendered in the browser
 	      
-![Alt text](https://github.com/glass-scarab/engineer-study-guide/blob/main/Images/dns-lookup.png "Complete DNS Lookup and Webpage Query")
+            ![Alt text](https://github.com/glass-scarab/engineer-study-guide/blob/main/Images/dns-lookup.png "Complete DNS Lookup and Webpage Query")
 	     
 	
 - DNS exfiltration 
