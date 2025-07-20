@@ -103,7 +103,7 @@ Nolang and his contributors did an awesome job of compiling this information and
 	- SMTP mail exchangers (MX). [9](https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/)
  		- Stands for **mail exchange**, and directs email to a mail server by indicating how mail should be routed using the SMTP.
    		- Contains domain origin and TTL like A/AAAA records, but also includes priority numbers email server domains to indicate the mail server preference.
-	- Name servers (NS). [10]
+	- Name servers (NS). [10](https://www.cloudflare.com/learning/dns/dns-records/dns-ns-record/)
  		- Stands for **nameserver** and indicates the authoratative DNS server for the domain.
    		- Tells systems where to go to find the domain's IP address.
      		- Includes origin, record type, NS value, and TTL.
