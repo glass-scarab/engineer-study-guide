@@ -93,11 +93,24 @@ Nolang and his contributors did an awesome job of compiling this information and
 - DNS configs
 	- Start of Authority (SOA). [6](https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/)
  		- DNS record about the domain or zone such as the admin's email, when the last update occured, and the server's refresh time.
-	- IP addresses (A and AAAA).
- 	- 
-	- SMTP mail exchangers (MX).
-	- Name servers (NS).
-	- Pointers for reverse DNS lookups (PTR).
+	- IP addresses (A and AAAA). [7](https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/) [8](https://www.cloudflare.com/learning/dns/dns-records/dns-aaaa-record/)
+ 		- A reocrds:
+   			- Stands for **address record**.
+      			- Maps an IPv4 address to a given domain, and includes the record's origin (i.e. "example.com") and time to live (TTL).
+         	- AAAA records
+          		- Still stands for address record, but the bit size is 4 times larger than IPv4 (32 x 4 = 128) hence 4 A's.
+            		- Maps an IPv6 address to a domain rather than an IPv4 address.
+	- SMTP mail exchangers (MX). [9](https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/)
+ 		- Stands for **mail exchange**, and directs email to a mail server by indicating how mail should be routed using the SMTP.
+   		- Contains domain origin and TTL like A/AAAA records, but also includes priority numbers email server domains to indicate the mail server preference.
+	- Name servers (NS). [10]
+ 		- Stands for **nameserver** and indicates the authoratative DNS server for the domain.
+   		- Tells systems where to go to find the domain's IP address.
+     		- Includes origin, record type, NS value, and TTL.
+	- Pointers for reverse DNS lookups (PTR). [11](https://www.cloudflare.com/learning/dns/dns-records/dns-ptr-record/)
+ 		- Stands for **pointer** and correlates domain names with IP addresses
+   		- **Opposite of A/AAAA** records which correlate **IPs to domains**. Again, **PTR == Domains -> IPs** (i.e. what domain is associated with this IP I have?).
+     		- PTR records are used in reverse DNS lookup
 	- Domain name aliases (CNAME).
 - ARP
 	- Pair MAC address with IP Address for IP connections. 
@@ -794,10 +807,15 @@ These security engineering challenges focus on text parsing and manipulation, ba
 	- Look at Yara rules for examples
 
  ## Sources
-1. Cloudflare (2025). "*What is the OSI Model?*". [](https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/)
+1. Cloudflare (2025). "*What is the OSI Model?*". https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
 2. Cisco (2025). "*What is a Firewall?*". https://www.cisco.com/site/us/en/learn/topics/security/what-is-a-firewall.html
 3. Cisco (2025). "*What is Network Address Translation (NAT)?*". https://www.cisco.com/site/us/en/learn/topics/networking/what-is-network-address-translation-nat.html
 4. Cloudflare (2025). "*What is DNS?*". https://www.cloudflare.com/learning/dns/what-is-dns/
 5. Palo Alto Networks (2025). "*What is DNS Tunneling? \[\+Examples and Protection Tips\]*". https://www.paloaltonetworks.com/cyberpedia/what-is-dns-tunneling
 6. Cloudflare (2025). "*What is a DNS SOA Record?*". https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/
+7. Cloudflare (2025). "*DNS A Record*". https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/
+8. Cloudflare (2025). "*DNS AAAA Record*". https://www.cloudflare.com/learning/dns/dns-records/dns-aaaa-record/
+9. Cloudflare (2025). "*What is a DNS MX Record?*". https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/
+10. Cloudflare (2025). "*What is a DNS NS Record?*". https://www.cloudflare.com/learning/dns/dns-records/dns-ns-record/
+11. Cloudflare (2025). "*What is a DNS PTR Record?*". https://www.cloudflare.com/learning/dns/dns-records/dns-ptr-record/
  
