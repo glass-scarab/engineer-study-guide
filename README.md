@@ -122,36 +122,65 @@ Nolang and his contributors did an awesome job of compiling this information and
 	- **A**ddress **R**esolution **P**rotocol
  	- Pair MAC address with IP Address for IP connections. 
 - DHCP
+	- Dynamic Host Control Protocol
 	- UDP (67 - Server, 68 - Client)
 	- Dynamic address allocation (allocated by router).
 	- `DHCPDISCOVER` -> `DHCPOFFER` -> `DHCPREQUEST` -> `DHCPACK`
 - Multiplex 
-	- Timeshare, statistical share, just useful to know it exists.
+	- Way of transmitting multiple signals over a single medium.
+ 		- Timeshare: signals multiplexed based on timeslots
+   		- Frequency spectrum: signals multiplexed based on different frequencies
+     			- Electromagnetic signals (radio, electric, light) travel in waves and can be split into a spectrum based on frqueny (i.e. Hz), so signlas can be organized across this spectrum to allow for multiplexing of communications 
 - Traceroute 
 	- Usually uses UDP, but might also use ICMP Echo Request or TCP SYN. TTL, or hop-limit.
 	- Initial hop-limit is 128 for windows and 64 for *nix. Destination returns ICMP Echo Reply. 
 - Nmap 
 	- Network scanning tool.
+ 	- Can run traceroute, ping, and port scans.
 - Intercepts (PitM - Person in the middle)
-	- Understand PKI (public key infrastructure in relation to this).
+	- Traffic can and will be intercepted if a network listening device is inserted between two points of communication. For example, Wi-Fi sniffing.
+ 	- If anyone can intercept information in transit how can anything be confidential? Enter, Public Key Infrastructure or PKI.
+  	- PKI is critical for managing the issuance and management of digital certificates.
+  	- We'll get into cryptography specifics later in this guide, but for now remember that PKI is a system of systems verifying one another. With PKI, you can take a certificate/key to an authoritative server to verify the intended recipient and their digital signature. This helps to mitigate potential abuse from PitM attacks.
 - VPN 
 	- Hide traffic from ISP but expose traffic to VPN provider.
+ 	- An encrypted tunnel between you, a VPN provider, and your target endpoint.
+  	- If someone were to intercept traffic between you and the VPN server, then they would only see one side of the encrypted conversation.
+  	- If someone were to intercept traffic between the VPN and your target, then they again would only see traffic to and from the VPN server.
+  	- This masks the true source and destination (i.e. you -> target). It does open you up to the VPN provider though. They manage the session keys, so they could decrypt your entire traffic.
 - Tor 
-	- Traffic is obvious on a network. 
-	- How do organised crime investigators find people on tor networks. 
+	- Traffic is very obvious on a network.
+ 		- Tor nodes are very well-documented and there are plenty of lists and application filters that can be used to alert on and reject Tor traffic
+   			- Many enterprises will even block the installation of the Onion browser altogether.
+	- Tor is not a foolproof solution!
+ 		- Honey nodes are real and a bad exit node can reveal your traffic to threat actors or law enforcement.
+   		- Timing attacks and traffic analysis can be used if you can monitor both the entry and exit nodes.
+     			- This is pretty sneaky, but is also a dead giveaway if you know your target's connection habits.
 - Proxy  
-	- Why 7 proxies won’t help you. 
+	- Layering multiple proxies won't help you stay anonymous.
+ 		- Sending traffic through 7 proxies would be so incredibly slow.
+   		- You may mask the source of your traffic to the endpoint, but the proxies in between are more than likely going to log your activity and cache the content you search.
+     		- Plus, there is no guarantee of end-to end encryption like a VPN.
+       		- Also, your ISP can definitely see the entire stream of communication between you and the 1st proxy.
 - BGP
 	- Border Gateway Protocol.
 	- Holds the internet together.
+ 	- Kind of like the post-office system of the Internet. BGP is responsible for looking at all the paths and determining the best route for data to take.
 - Network traffic tools
 	- Wireshark
+ 		- GUI packet analysis/capture tool
 	- Tcpdump
+ 		- CLI packet analysis/capture tool
 	- Burp suite
+ 		- Suite of tools used for penetration testing and vulnerability scanning
 - HTTP/S 
-	- (80, 443)
+	- Hyper Text Transport Protocol (HTTP): port 80
+ 	- Hyper Text Transport Protocol Secure (HTTPS): port 443
+  		- Uses transport layer security (TLS) to encrypt communications 
 - SSL/TLS
-	- (443) 
+	- Secure Socet Layer: port 443
+ 	- TLS: port 443
+  		- TLS replaced SSL
 	- Super important to learn this, includes learning about handshakes, encryption, signing, certificate authorities, trust systems. A good [primer](https://english.ncsc.nl/publications/publications/2021/january/19/it-security-guidelines-for-transport-layer-security-2.1) on all these concepts and algorithms is made available by the Dutch cybersecurity center.
 	- POODLE, BEAST, CRIME, BREACH, HEARTBLEED.
 - TCP/UDP
