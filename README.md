@@ -113,9 +113,14 @@ Nolang and his contributors did an awesome job of compiling this information and
      		- A/AAAA records are used in web browsing and other forward lookups.
    		- PTR == Domains -> IPs** (i.e. What domain is associated with this IP I have?).
      		- PTR records are used in reverse DNS lookup
-	- Domain name aliases (CNAME).
+	- Domain name aliases (CNAME). [12](https://www.cloudflare.com/learning/dns/dns-records/dns-cname-record/)
+ 		- Stands for **canonical name** and points from an alias domain to a "canonical" domain.
+   		- **All** CNAME records must point to a domain and **never** to an IP address.
+     		- Example: "blog.example.com" (alias) -> example.com (domain)
+       		- Only points clients to the same IP as the root domain. Once there, the server will handle the URL accordingly.
 - ARP
-	- Pair MAC address with IP Address for IP connections. 
+	- **A**ddress **R**esolution **P**rotocol
+ 	- Pair MAC address with IP Address for IP connections. 
 - DHCP
 	- UDP (67 - Server, 68 - Client)
 	- Dynamic address allocation (allocated by router).
@@ -820,4 +825,5 @@ These security engineering challenges focus on text parsing and manipulation, ba
 9. Cloudflare (2025). "*What is a DNS MX Record?*". https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/
 10. Cloudflare (2025). "*What is a DNS NS Record?*". https://www.cloudflare.com/learning/dns/dns-records/dns-ns-record/
 11. Cloudflare (2025). "*What is a DNS PTR Record?*". https://www.cloudflare.com/learning/dns/dns-records/dns-ptr-record/
+12. Cloudflare (2025). "*What is a DNS CNAME record?*". https://www.cloudflare.com/learning/dns/dns-records/dns-cname-record/
  
