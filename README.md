@@ -111,7 +111,7 @@ Nolang and his contributors did an awesome job of compiling this information and
  		- Stands for **pointer** and correlates domain names with IP addresses
    		- **Opposite of A/AAAA** records which correlate **IPs to domains** (i.e. What is the IP of this domain I have? AKA web browsing).
      		- **PTR == Domains -> IPs** (i.e. What domain is associated with this IP I have?).
-     			- PTR records are used in reverse DNS lookup
+       			- PTR records are used in reverse DNS lookup
 	- Domain name aliases (CNAME).
 - ARP
 	- Pair MAC address with IP Address for IP connections. 
