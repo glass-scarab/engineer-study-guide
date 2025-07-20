@@ -80,16 +80,21 @@ Nolang and his contributors did an awesome job of compiling this information and
             9. The browser makes a HTTP request to the IP address.
             10. The server at that IP returns the webpage to be rendered in the browser
 	      
-            ![Alt text](https://github.com/glass-scarab/engineer-study-guide/blob/main/Images/dns-lookup.png "Complete DNS Lookup and Webpage Query")
+    ![Alt text](https://github.com/glass-scarab/engineer-study-guide/blob/main/Images/dns-lookup.png "Complete DNS Lookup and Webpage Query")
 	     
 	
-- DNS exfiltration 
-	- Sending data as subdomains. 
-	- 26856485f6476a567567c6576e678.badguy.com
-	- Doesn’t show up in http logs. 
+- DNS tunneling / DNS exfiltration [4](https://www.paloaltonetworks.com/cyberpedia/what-is-dns-tunneling)
+	- This is a tactic used to send information (commands, data, etc.) between an internal system and external command & control (C2) systems by hiding it in DNS queries and responses. 
+	- For example: 26856485f6476a567567c6576e678.badguy.com
+ 		- If an internal system sent this, then it is likely exfiltration
+   	- For example: CNAME d2hvYW1p.badguy.com
+   		- If an external system responds like this, then it is likely some sort of acknowledgement or instruction set.
+	- Doesn’t show up in http logs.
 - DNS configs
 	- Start of Authority (SOA).
+ 		- DNS record about the domain or zone such as the admin's email, when the last update occured, and the server's refresh time.
 	- IP addresses (A and AAAA).
+ 	- 
 	- SMTP mail exchangers (MX).
 	- Name servers (NS).
 	- Pointers for reverse DNS lookups (PTR).
@@ -555,7 +560,7 @@ Practice describing security concepts in the context of an attack. These categor
 - [Excellent talk](https://www.youtube.com/watch?v=vbwb6zqjZ7o) on "Defense Against the Dark Arts" by Lilly Ryan (contains *many* Harry Potter spoilers)
 
 
-# Detection
+# Detection Engineering
 
 - IDS
 	- Intrusion Detection System (signature based (eg. snort) or behaviour based).
@@ -568,11 +573,17 @@ Practice describing security concepts in the context of an attack. These categor
 - IOC 
 	- Indicator of compromise (often shared amongst orgs/groups).
 	- Specific details (e.g. IP addresses, hashes, domains)
+ 	- Often indicative of **post-exploit** activity
+ - IOA
+ 	- Indocator of attack (often shared amongst orgs/groups).
+  	- Specific details (e.g. IP addresses, hashes, domains)
+   	- More focused on patterns of behavior.
+   	- "Shifting left" to detect indicators of **pre-exploit** behavior.
 
 - Things that create signals
 	- Honeypots, snort.
 
-- Things that triage signals
+- Things that collect/triage signals
 	- SIEM, eg splunk.
 
 - Things that will alert a human 
@@ -624,6 +635,8 @@ Practice describing security concepts in the context of an attack. These categor
 	- Tcpdump.
 	- Wireshark.
 	- Zeek.
+ 	- Sigma Rules
+ - 
 
 - A curated list of [awesome threat detection](https://github.com/0x4D31/awesome-threat-detection) resources
 
@@ -784,4 +797,6 @@ These security engineering challenges focus on text parsing and manipulation, ba
 1. Cloudflare (2025). "*What is the OSI Model?*". https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
 2. Cisco (2025). "*What is a Firewall?*". https://www.cisco.com/site/us/en/learn/topics/security/what-is-a-firewall.html
 3. Cisco (2025). "*What is Network Address Translation (NAT)?*". https://www.cisco.com/site/us/en/learn/topics/networking/what-is-network-address-translation-nat.html
+4. Cloudflare (2025). "*What is DNS Tunneling? \[\+Examples and Protection Tips\]*". https://www.paloaltonetworks.com/cyberpedia/what-is-dns-tunneling
+5. 
  
