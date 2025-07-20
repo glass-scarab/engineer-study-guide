@@ -60,7 +60,7 @@ Nolang and his contributors did an awesome job of compiling this information and
  	- Introduced to address IPv4 exhaustion.
  	- Usually implemented on WAN edge routers to connect private networks to public networks like the Internet.
   	- NAT64 allows IPv4-only devices and IPv6-only devices to communicate.
-- DNS
+- DNS [4](https://www.cloudflare.com/learning/dns/what-is-dns/)
 	- Port 53
 	- DNS is the "phonebook" of the Internet -- resolving domain names to IP addresses and vice-versa.
  	- In a reverse DNS lookup, PTR might contain- 2.152.80.208.in-addr.arpa, which will map to  208.80.152.2. DNS lookups start at the end of the string and work backwards, which is why the IP address is backwards in PTR.
@@ -83,15 +83,15 @@ Nolang and his contributors did an awesome job of compiling this information and
     ![Alt text](https://github.com/glass-scarab/engineer-study-guide/blob/main/Images/dns-lookup.png "Complete DNS Lookup and Webpage Query")
 	     
 	
-- DNS tunneling / DNS exfiltration [4](https://www.paloaltonetworks.com/cyberpedia/what-is-dns-tunneling)
+- DNS tunneling / DNS exfiltration [5](https://www.paloaltonetworks.com/cyberpedia/what-is-dns-tunneling)
 	- This is a tactic used to send information (commands, data, etc.) between an internal system and external command & control (C2) systems by hiding it in DNS queries and responses. 
 	- For example: 26856485f6476a567567c6576e678.badguy.com
- 		- If an internal system sent this, then it is likely exfiltration
+ 		- If an internal system sent this, then it is likely data exfiltration
    	- For example: CNAME d2hvYW1p.badguy.com
    		- If an external system responds like this, then it is likely some sort of acknowledgement or instruction set.
-	- Doesn’t show up in http logs.
+	- DNS tunneling doesn’t show up in http logs.
 - DNS configs
-	- Start of Authority (SOA).
+	- Start of Authority (SOA). [6](https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/)
  		- DNS record about the domain or zone such as the admin's email, when the last update occured, and the server's refresh time.
 	- IP addresses (A and AAAA).
  	- 
@@ -794,9 +794,10 @@ These security engineering challenges focus on text parsing and manipulation, ba
 	- Look at Yara rules for examples
 
  ## Sources
-1. Cloudflare (2025). "*What is the OSI Model?*". https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
+1. Cloudflare (2025). "*What is the OSI Model?*". [](https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/)
 2. Cisco (2025). "*What is a Firewall?*". https://www.cisco.com/site/us/en/learn/topics/security/what-is-a-firewall.html
 3. Cisco (2025). "*What is Network Address Translation (NAT)?*". https://www.cisco.com/site/us/en/learn/topics/networking/what-is-network-address-translation-nat.html
-4. Cloudflare (2025). "*What is DNS Tunneling? \[\+Examples and Protection Tips\]*". https://www.paloaltonetworks.com/cyberpedia/what-is-dns-tunneling
-5. 
+4. Cloudflare (2025). "*What is DNS?*". https://www.cloudflare.com/learning/dns/what-is-dns/
+5. Palo Alto Networks (2025). "*What is DNS Tunneling? \[\+Examples and Protection Tips\]*". https://www.paloaltonetworks.com/cyberpedia/what-is-dns-tunneling
+6. Cloudflare (2025). "*What is a DNS SOA Record?*". https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/
  
