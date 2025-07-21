@@ -285,15 +285,16 @@ Nolang and his contributors did an awesome job of compiling this information and
 # Web Application 
 
 - Same origin policy
-	- Only accept requests from the same origin domain.  
+	- Policy that only accepts requests from a script/docuiment from the same origin domain.  
 - CORS 
 	- Cross-Origin Resource Sharing. Can specify allowed origins in HTTP headers. Sends a preflight request with options set asking if the server approves, and if the server approves, then the actual request is sent (eg. should client send auth cookies).
 - HSTS 
-	- Policies, eg what websites use HTTPS.
+	- HTTP Strict-Transport-Security. Policy that informs browsers that the host should only be access using HTTPS, and any future attempts to access it over HTTP will automatically be upgraded to HTTPS.
 - Cert transparency 
 	- Can verify certificates against public logs 	
 - HTTP Public Key Pinning
 	- (HPKP)
+ 	- Allowed browsers to pin keys that the server sent in the HPKP header-- a list of public key hashes that could be expected in the future. The problem was if there was a misconfiguration, the policy could deny legitimate users access.
 	- Deprecated by Google Chrome
 - Cookies 
 	- httponly - cannot be accessed by javascript.
