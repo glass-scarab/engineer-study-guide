@@ -194,34 +194,50 @@ Nolang and his contributors did an awesome job of compiling this information and
 	- Super important to learn this, includes learning about handshakes, encryption, signing, certificate authorities, trust systems. A good [primer](https://english.ncsc.nl/publications/publications/2021/january/19/it-security-guidelines-for-transport-layer-security-2.1) on all these concepts and algorithms is made available by the Dutch cybersecurity center.
 	- POODLE, BEAST, CRIME, BREACH, HEARTBLEED.
 - TCP/UDP
-	- Web traffic, chat, voip, traceroute.
+	- TCP is great for **stateful** data transmissions (i.e. web browsing, IM, etc.)
+ 		- For when you need to know the client received the message.
+   		- Slower, but less prone to dropped packets.
+   	- UDP is great for **stateless** connections (i.e. VOIP, streaming, etc.)
+   		- For when you need to give the best effort to send connent, but you don't want to wait for the reply.
+   	 	- Faster, but prone to lost data (aka buffering).
 	- TCP will throttle back if packets are lost but UDP doesn't. 
 	- Streaming can slow network TCP connections sharing the same network.
 - ICMP 
 	- Ping and traceroute.
 - Mail
-	- SMTP (25, 587, 465)
-	- IMAP (143, 993)
-	- POP3 (110, 995)
+	- SMTP ports (25, 587, 465)
+	- IMAP ports (143, 993)
+	- POP3 ports (110, 995)
 - SSH 
-	- (22)
+	- Port (22)
 	- Handshake uses asymmetric encryption to exchange symmetric key.
+ 	-  SSH handshake:
+  		- TCP 3-way handshake (syn, syn-ack, ack)
+    		- SSH Protocol Version Exchange: Both the client and the server exchange messages to agree on a compatible SSH protocol version to use for the connection.
+    		- Key Exchange (KEX): This is where the client and server exchange public information to derive a shared secret key. This process happens without actually transmitting the key itself over the network, ensuring the confidentiality of the session key.
+      		- Elliptic Curve Diffie-Hellman Initialization (ECDH Init): The client generates a temporary key pair and sends its public key to the server.
+        	- Elliptic Curve Diffie-Hellman Reply (ECDH Reply): The server generates its own temporary key pair and uses the client's public key (along with its own key pair) to derive the shared secret key. The server then generates an exchange hash and signs it with its host private key, and sends this signed exchange hash to the client along with its public key (or certificate). This ensures the client can verify the server's identity and detect any potential Man-in-the-Middle (MITM) attacks. The client also verifies the server's host key against a local database of known hosts to further prevent MITM attacks.
+         	- New Keys: Both the client and the server use the shared secret derived during the Key Exchange process to generate session keys. These session keys are then used for symmetric encryption of all subsequent communication in the SSH session, guaranteeing confidentiality and integrity. 
 - Telnet
-	- (23, 992)
+	- Ports (23, 992)
 	- Allows remote communication with hosts.
 - ARP  
 	- Who is 0.0.0.0? Tell 0.0.0.1.
 	- Linking IP address to MAC, Looks at cache first.
 - DHCP 
-	- (67, 68) (546, 547)
-	- Dynamic (leases IP address, not persistent).
-	- Automatic (leases IP address and remembers MAC and IP pairing in a table).
-	- Manual (static IP set by administrator).
+	- server;client Ports (67;68) (546;547)
+	- Dynamic mode (leases IP address, not persistent).
+	- Automatic mode (leases IP address and remembers MAC and IP pairing in a table).
+	- Manual mode (static IP set by administrator).
 - IRC 
-	- Understand use by hackers (botnets).
+	- IRC is a simple text-based protocol used to send messages
+ 	- It can allow a botmaster to send commands to bots.
 - FTP/SFTP 
-	- (21, 22)
-- RPC 
+	- File transfer protocol (FTP)
+ 		- Port 21
+ 	- Secure File Transfer Protocol (SFTP)
+  		- Port 22
+- Remote procedure call (RPC)
 	- Predefined set of tasks that remote clients can execute.
 	- Used inside orgs. 
 - Service ports
@@ -256,9 +272,14 @@ Nolang and his contributors did an awesome job of compiling this information and
 	- Destination port
 	- Length
 	- Checksum
-- Broadcast domains and collision domains. 
+- Broadcast domains
+	- Logical areas within a network where a broadcast by one device is received by all others in the domain.
+- Collision domains
+	- a network segment where data packets can collide with each other when multiple devices try to transmit simultaneously.
 - Root stores
-- CAM table overflow
+	- Collection off trusted root certificates.
+- CAM table overflow (MAC flood)
+	- The idea is that you flood a switch with fake MAC addresses and overflow the finite amount of table space. When this happens, the switch fails open and begins acting like an old network hub broadcasting packets to everyone.
 
 
 # Web Application 
